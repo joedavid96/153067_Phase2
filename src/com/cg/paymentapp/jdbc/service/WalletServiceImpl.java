@@ -90,14 +90,14 @@ public class WalletServiceImpl implements WalletService {
 					if (i >= 0) {
 						b = b.subtract(amount);
 						bx.getWallet().setBalance(b);
-						String log1 = new java.util.Date() + "\tAmount of" + amount
+						String log1 = new java.util.Date() + "\tAmount of " + amount
 								+ " Debited from A/C towards A/C linked with Number" + sourceMobileNo
 								+ ". Balance in A/C : " + b;
 						repo.saveTransactions(sourceMobileNo, log1);
 						boolean flag1 = repo.save(bx);
 						c = c.add(amount);
 						cx.getWallet().setBalance(c);
-						String log2 = new java.util.Date() + "\tAmount of" + amount
+						String log2 = new java.util.Date() + "\tAmount of " + amount
 								+ " Credited to A/C from A/C linked with Number" + targetMobileNo
 								+ ". Balance in A/C : " + c;
 						repo.saveTransactions(targetMobileNo, log2);
@@ -129,7 +129,7 @@ public class WalletServiceImpl implements WalletService {
 				BigDecimal b = c.getWallet().getBalance();
 				b = b.add(amount);
 				c.getWallet().setBalance(b);
-				String log = new java.util.Date() + "\tAmount of" + amount + " Credited to A/C. Balance in A/C : " + b;
+				String log = new java.util.Date() + "\tAmount of " + amount + " Credited to A/C. Balance in A/C : " + b;
 				repo.saveTransactions(mobileNo, log);
 				boolean flag = repo.save(c);
 				if (flag) {
@@ -155,7 +155,7 @@ public class WalletServiceImpl implements WalletService {
 				if (i >= 0) {
 					b = b.subtract(amount);
 					c.getWallet().setBalance(b);
-					String log = new java.util.Date() + "\tAmount of" + amount + " Debited from A/C. Balance in A/C : "
+					String log = new java.util.Date() + "\tAmount of " + amount + " Debited from A/C. Balance in A/C : "
 							+ b;
 					repo.saveTransactions(mobileNo, log);
 					boolean flag = repo.save(c);
